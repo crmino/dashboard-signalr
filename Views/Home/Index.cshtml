@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@section Styles {
+    <link href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet" />
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+
+    <style>
+        .card-bitcoin {
+            background-color: #262D47; /* ApexCharts dark background */
+            color: #e2e8f0; /* Light text */
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        }
+
+            .card-bitcoin .card-title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #fbbf24; /* Bitcoin orange */
+            }
+
+            .card-bitcoin .price {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #22c55e; /* Green for price */
+            }
+
+            .card-bitcoin .price-change {
+                font-size: 1rem;
+                font-weight: 500;
+                color: #10b981; /* Green for positive change */
+            }
+
+                .card-bitcoin .price-change.negative {
+                    color: #ef4444; /* Red for negative change */
+                }
+    </style>
+}
+
+<div id="wrapper" class="mt-5">
+    <div class="content-area">
+        <div class="container-fluid">
+            <div class="main">
+
+                <!--card-->
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card card-bitcoin text-center p-4">
+                            <div class="card-body">
+                                <h5 class="card-title">BTC SWAP (USD)</h5>
+                                <p class="price" id="btc_price">$0</p>
+                                <p class="price-change" id="btc_higth">$0 (24h Hight)</p>
+                                <p class="price-change" id="btc_low">$0 (24h Low)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-bitcoin text-center p-4">
+                            <div class="card-body">
+                                <h5 class="card-title">ETH SWAP (USD)</h5>
+                                <p class="price" id="eth_price">$0</p>
+                                <p class="price-change" id="eth_higth">$0 (24h Hight)</p>
+                                <p class="price-change" id="eth_low">$0 (24h Low)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-bitcoin text-center p-4">
+                            <div class="card-body">
+                                <h5 class="card-title">SOL SWAP (USD)</h5>
+                                <p class="price" id="sol_price">$0</p>
+                                <p class="price-change" id="sol_higth">$0 (24h Hight)</p>
+                                <p class="price-change" id="sol_low">$0 (24h Low)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end card-->
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="box columnbox mt-4">
+                            <div id="columnchart"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="box  mt-4">
+                            <div id="linechart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="box radialbox mt-4">
+                            <div id="circlechart"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="box mt-4">
+                            <div class="mt-4">
+                                <div id="progress1"></div>
+                            </div>
+                            <div class="mt-4">
+                                <div id="progress2"></div>
+                            </div>
+                            <div class="mt-4">
+                                <div id="progress3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="~/js/dashboard.js"></script>
+}
